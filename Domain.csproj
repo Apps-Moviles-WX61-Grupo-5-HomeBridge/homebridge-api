@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <RootNamespace>_2_Domain</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Shared\Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="9.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.6.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="IAM\Models\Aggregates\" />
+      <Folder Include="IAM\Models\Response\" />
+      <Folder Include="Publication\Models\Aggregates\" />
+      <Folder Include="Publication\Models\Response\" />
+      <Folder Include="Publication\Models\ValueObjects\" />
+      <Folder Include="Search\Models\Aggregates\" />
+      <Folder Include="Search\Models\Commands\" />
+      <Folder Include="Search\Models\Response\" />
+      <Folder Include="Search\Models\ValueObjects\" />
+    </ItemGroup>
+
+</Project>
