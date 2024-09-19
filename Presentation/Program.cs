@@ -47,12 +47,12 @@ builder.Services.AddSwaggerGen(options =>
         options.SwaggerDoc("v1", new OpenApiInfo
         {
             Version = "v1",
-            Title = "Propertunity API Documentation v1.0.0",
+            Title = "Salesquare API Documentation v1.0.0",
             Description = "An ASP.NET Core Web API for managing Propertunity domain, data, and presentation layers.",
             Contact = new OpenApiContact
             {
                 Name = "Contact the team",
-                Url = new Uri("https://propertunity.com")
+                Url = new Uri("https://salesquare.com")
             },
             License = new OpenApiLicense
             {
@@ -135,7 +135,7 @@ builder.Services.AddAutoMapper(
 );
 
 //  @Database
-var connectionString = builder.Configuration.GetConnectionString("propertunityDataCenterConnection");
+var connectionString = builder.Configuration.GetConnectionString("salesquare");
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
 builder.Services.AddDbContext<PropertunityDataCenterContext>(
     dbContextOptions =>

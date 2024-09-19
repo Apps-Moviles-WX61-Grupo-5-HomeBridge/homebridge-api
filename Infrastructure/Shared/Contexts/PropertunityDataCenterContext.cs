@@ -26,7 +26,7 @@ public class PropertunityDataCenterContext : DbContext
         if (!optionsBuilder.IsConfigured)
         {
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
-            optionsBuilder.UseMySql("Server=sql10.freemysqlhosting.net,3306;Uid=sql10712330;Pwd=FEGcgiKql8;Database=sql10712330;",
+            optionsBuilder.UseMySql("Server=sql10.freemysqlhosting.net,3306;Uid=sql10732289;Pwd=dgu1KIxClK;Database=sql10732289;",
                 serverVersion);
         }
     }

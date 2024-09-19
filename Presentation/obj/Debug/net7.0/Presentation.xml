@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Presentation</name>
+    </assembly>
+    <members>
+        <member name="M:_1_API.IAM.Controllers.UserAuthenticationController.UserLogin(_2_Domain.IAM.Models.Queries.GetTokenQuery)">
+            <summary>
+                Allows the user to log into the system providing a JWT token as authentication.
+            </summary>
+            <param name="request">Body request parameters that represents the input credentials of the user.</param>
+            <returns>
+                Returns a <c>AuthenticationResults</c> object as a valid response to the user's request.
+            </returns>
+            <remarks>
+                This endpoint allows the user to log into the system providing a JWT token and a refresh token as a valid authentication.
+                <para>You have to provide the user's credentials such as password and username.</para>
+                <para>Here is an overview of the parameters of <c>UserAuthenticationRequest</c>: </para>
+                    <para> &#149; <b>Username</b>: The username of the user. </para>
+                    <para> &#149; <b>Password</b>: The password. </para>
+                <para>Both user's credentials are needed to log the user in successfully.</para>
+                <br></br>
+                <para>What's actually returns is a bit more complex, but still manageable.</para>
+                <para>The type of the returned response (successful log in) is an instance of <c>AuthenticationResults</c>.</para>
+                <para><c>AuthenticationResults</c> has the following properties: </para>
+                    <para> &#149; <b>token</b>: The token used for any request. </para>
+                    <para> &#149; <b>refreshToken</b>: Allows the user to refresh their token. </para>
+                    <para> &#149; <b>result</b>: Successful or unsucessful. </para>
+                    <para> &#149; <b>message</b>: Just a message, nothing else. </para>
+            </remarks>
+            <response code="200">Returns <b>a valid session</b> for the user login.</response>
+            <response code="500"><b>Something wrong</b> appears to be with your query.</response>
+            <response code="401">You <b>didn't provide the correct credentials</b> for a successful login.</response>
+        </member>
+        <member name="M:_1_API.IAM.Controllers.UserAuthenticationController.ObtainRefreshToken(_2_Domain.IAM.Models.Commands.RefreshTokenCommand)">
+            <summary>
+                Refreshes the user's token for more request without re-logging in.
+            </summary>
+            <param name="command">Body request parameters that represents the refresh token and the expired token.</param>
+            <returns>
+                Returns a <c>authorizationResponse</c> object as a valid response to the user's new token request.
+            </returns>
+            <remarks>
+                This endpoint allows the user to refresh their token for more requests without re-logging in.
+                <para>The parameters of the request are the following: </para>
+                    <para> &#149; <b>ExpiredToken</b>: The expired token. </para>
+                    <para> &#149; <b>RefreshToken</b>: The returned refresh token given when first login. </para>
+                <para>The type of the returned response is an instance of <c>AuthenticationResults</c>.</para>
+                <para><c>AuthenticationResults</c> has the following properties: </para>
+                    <para> &#149; <b>token</b>: The token used for any request. </para>
+                    <para> &#149; <b>refreshToken</b>: Allows the user to refresh their token. </para>
+                    <para> &#149; <b>result</b>: Successful or unsucessful. </para>
+                    <para> &#149; <b>message</b>: Just a message, nothing else. </para>
+                <para>You can use <i>refreshToken</i> to request a new token using the expired <c>token</c>.</para>
+            </remarks>
+            <response code="200">Returns <b>another valid session</b> for the user.</response>
+            <response code="500"><b>Something wrong</b> appears to be with your query.</response>
+            <response code="401"><b>Token may not be expired</b>, or any <b>input was incorrect</b>.</response>
+        </member>
+        <member name="M:_1_API.IAM.Controllers.UserManagerController.GetUserInformation(_2_Domain.IAM.Models.Queries.GetUserByIdQuery)">
+            <summary>
+                Obtain the information of a user by its ID.
+            </summary>
+            <returns>
+                Returns the information of a user of type <c>UserInformation</c>.
+            </returns>
+            <remarks>
+                This endpoint returs the information of a user of type <c>UserInformation</c>.
+                <para>If you were expecting to return also the user credentials, well not obviously.</para>
+                <para>You only need to provide an Id to start searching.</para>
+                <para>Note that this controller must be set with the annotation <i>[Authorize]</i></para>
+                <para>so any request to get the information of any user (at least public information)</para>
+                <para>must be authorized through login. But for this purpose, this is set as public and</para>
+                <para>anyone can access to this controller without authorization.</para>
+            </remarks>
+            <response code="200">Returns <b>the information of the user</b>.</response>
+            <response code="404">User <b>not found</b>.</response>
+            <response code="500"><b>Something went wrong</b>. Have you tried to unplug the internet cable?</response>
+        </member>
+        <member name="M:_1_API.IAM.Controllers.UserRegisterController.UserRegistration(_2_Domain.IAM.Models.Commands.UserRegistrationCommand)">
+            <summary>
+                Register a new user into the system.
+            </summary>
+            <param name="command">Body request parameters that represents the basic information of a user.</param>
+            <returns>
+                Returns a message confirming the new user registered.
+            </returns>
+            <remarks>
+                This endpoint allows the creation of new users providing basic information such as user information and credentials.
+                The parameter type of this endpoint is an instance of <c>UserRegistrationRequest</c>.
+                <para>Here is an overview of the parameters the makes <c>UserRegistrationRequest</c>: </para>
+                    <para> &#149; <b>Username</b>: The username of the user. </para>
+                    <para> &#149; <b>Password</b>: The password. </para>
+                    <para> &#149; <b>Email</b>: The email of the user. </para>
+                    <para> &#149; <b>PhoneNumber</b>: The phone number. </para>
+                <para>You may be wondering where are the two segments we focus on. Well, an account allows any user to</para>
+                <para>find, buy real states and also allows users to create publications. We wrapped them up in a single account</para>
+                <para>to develop easier account creations and management.</para>
+            </remarks>
+            <response code="200">Returns <b>a confirmation message</b> for the new user registered.</response>
+            <response code="500"><b>Something wrong</b> appears to be with your query.</response>
+            <response code="400">You <b>didn't provide correct information</b> for the creation of a new user.</response>
+        </member>
+        <member name="M:_1_API.Publication.Controllers.PublicationController.GetPublication(_2_Domain.Publication.Models.Queries.GetPublicationQuery)">
+            <summary>
+                Search for publications but given a valid ID (and a state).
+            </summary>
+            <param name="publicationGetQuery">Query request parameter that represents what publication to retrieve.</param>
+            <returns>
+                Returns a single publication that matches the query parameters.
+            </returns>
+            <remarks>
+                This endpoint allows the front-end to retrieve a publication given an Id (and a state).
+                <para>The type of this parameter is an instance of <c>GetPublicationRequest</c>.</para>
+                <para><c>GetPublicationRequest</c> has the following properties: </para>
+                    <para> &#149; <b>Id</b>: A valid Id of any publication. </para>
+                    <para> &#149; <b>IsActive</b>: Optional; Checks if the publication is active (visible) or not (hidden). </para>
+                <para>Note that Id must be greater than 0</para>
+            </remarks>
+            <response code="200">Returns <b>a matched publication</b> corresponding to the query parameters.</response>
+            <response code="500"><b>Something wrong</b> appears to be with your query.</response>
+            <response code="404">Returns <b>nothing (null)</b> as no match was found.</response>
+        </member>
+        <member name="M:_1_API.Publication.Controllers.PublicationController.PostPublication(_2_Domain.Publication.Models.Commands.PostPublicationCommand)">
+            <summary>
+                Posts (creates) a publication based on your post parameters.
+            </summary>
+            <param name="publicationPostCommand">Body request parameters that represents a publication instance.</param>
+            <returns>
+                Returns a valid id of the publication that was posted.
+            </returns>
+            <remarks>
+                Post (create) a new publication based on the parameters provided.
+                <para>The type of this parameter is an instance of <c>PostPublicationRequest</c>.</para>
+                <para><c>PostPublicationRequest</c> has the following properties: </para>
+                    <para> &#149; <b>Title</b>: A title to be displayed. </para>
+                    <para> &#149; <b>Description</b>: A description of your publication; make sure to provide a rich description. </para>
+                    <para> &#149; <b>Price</b>: Price of the real state. </para>
+                    <para> &#149; <b>_Location_Address</b>: Adress of your real state. </para>
+                    <para> &#149; <b>UserId</b>: Who is posting this publication? Provide a valid id. </para>
+                <para>Note that UserId should be completed automatically because the user have already logged in.</para>
+            </remarks>
+            <response code="200">Returns <b>a valid id</b> of the publication that was posted.</response>
+            <response code="500"><b>Something wrong</b> appears to be with your query.</response>
+            <response code="400">Your publication <b>couldn't be created</b>; bad request.</response>
+        </member>
+        <member name="M:_1_API.Publication.Controllers.PublicationController.DeletePublication(System.Int32)">
+            <summary>
+                Softly deletes a publication based on the provided ID.
+            </summary>
+            <param name="id">Id is just required to delete the required publication.</param>
+            <returns>
+                Returns '1' as a successfull deletion.
+            </returns>
+            <remarks>
+                <i>Softly deletes</i> a publication setting its state to inactive.
+                <para>If a publication is <i>inactive for too long</i>, then it will get permanently deleted.</para>
+            </remarks>
+            <response code="200">Returns <b>1</b> if the publication was successfully deleted.</response>
+            <response code="500"><b>Something wrong</b> appears to be with your query.</response>
+            <response code="400">Your publication <b>couldn't be deleted</b>; bad request.</response>
+        </member>
+        <member name="M:_1_API.Search.Controllers.SearchController.SearchMain(_2_Domain.Search.Models.Queries.SearchQuery)">
+            <summary>
+                Search for publications based on the search criteria.
+            </summary>
+            <param name="query">The search criteria.</param>
+            <returns>
+                A list of publications that match the search criteria.
+            </returns>
+            <remarks>
+                The search criteria is provided in the <i>query</i> parameter which is an object of type <c>SearchRequest</c>.
+                <para> <c>SearchRequest</c> has the following properties: </para>
+                    <para> &#149; <b>SearchInput</b>: The search input; a string. </para>
+                    <para> &#149; <b>Type</b>: The type of search. </para>
+                    <para> &#149; <b>PriceMin</b>: The minimum price for the search. </para>
+                    <para> &#149; <b>PriceMax</b>: The maximum price for the search. </para>
+                <para> Each of these parameters represents the filters to find the perfect and suitable publication for the user. </para>
+                <para> Although, the algorithm used for searching is still primitive, it will suffice for simple demands by now. </para>
+                <para> <c>Type</c> is an integer representing an enumerator, it can be one of the following types representations:</para>
+                    <para> &#149; <b>RealState</b>: Type of search for real state publications is 0. </para>
+                    <para> &#149; <b>Location</b>: Type of search for locations is 1. </para>
+                <para> About price inputs, note that if <c>PriceMin</c> is greater than <c>PriceMax</c>, the controller will take the greatest value and </para>
+                <para> assign it to <c>PriceMax</c> as well as for the lower price to <c>PriceMin</c>. </para>
+            </remarks>
+            <response code="200">Returns <b>a list of publications</b> corresponding to the query parameters.</response>
+            <response code="500"><b>Something wrong</b> appears to be with your query. Did you send a valid query?</response>
+            <response code="404">Returns <b>an empty list</b> when no publications were found.</response>
+        </member>
+    </members>
+</doc>

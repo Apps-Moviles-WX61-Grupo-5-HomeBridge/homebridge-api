@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ne/IAeRG1NP6sk+g6tmgqjYoPaODeCdXd8fwMc6LDI/AYOCMxh8PS3n/9THV9oP+CPvHaRDlZuaO16wThNBOpw==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\USUARIO\\.nuget\\packages\\bcrypt.net\\0.1.0\\bcrypt.net.0.1.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "No se encuentra el proyecto \"C:\\Users\\USUARIO\\Desktop\\AppMoviles\\Shared\\Shared.csproj\". Compruebe que la referencia al proyecto sea válida y que exista el archivo de proyecto.",
+      "libraryId": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\Shared\\Shared.csproj",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "No se encuentra el proyecto \"C:\\Users\\USUARIO\\Desktop\\AppMoviles\\Domain\\Domain.csproj\". Compruebe que la referencia al proyecto sea válida y que exista el archivo de proyecto.",
+      "libraryId": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\Domain\\Domain.csproj",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "No se encuentra el proyecto \"C:\\Users\\USUARIO\\Desktop\\AppMoviles\\Infrastructure\\Infrastructure.csproj\". Compruebe que la referencia al proyecto sea válida y que exista el archivo de proyecto.",
+      "libraryId": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\Infrastructure\\Infrastructure.csproj",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"BCrypt.Net 0.1.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "BCrypt.Net",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
+}
