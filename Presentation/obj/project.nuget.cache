@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "K6R8fnYfehrwfRJvIefyMDS2waYcwoSFdHjX+Sotw7A+w7l/pGdDwShUY2g0oqrhCmPirzgF36sZ6eStGALKyw==",
+  "dgSpecHash": "ZO5mGhS4FyA=",
   "success": true,
   "projectFilePath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Presentation\\Presentation.csproj",
   "expectedPackageFiles": [
@@ -31,6 +31,7 @@
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.35.0\\microsoft.identitymodel.protocols.6.35.0.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.35.0\\microsoft.identitymodel.protocols.openidconnect.6.35.0.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.6.0\\microsoft.identitymodel.tokens.7.6.0.nupkg.sha512",
+    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.net.build.containers\\7.0.410\\microsoft.net.build.containers.7.0.410.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
