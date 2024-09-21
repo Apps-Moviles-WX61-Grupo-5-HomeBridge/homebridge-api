@@ -47,8 +47,8 @@ builder.Services.AddSwaggerGen(options =>
         options.SwaggerDoc("v1", new OpenApiInfo
         {
             Version = "v1",
-            Title = "Salesquare API Documentation v1.0.0",
-            Description = "An ASP.NET Core Web API for managing Propertunity domain, data, and presentation layers.",
+            Title = "SaleSquare API Documentation v1.0.0",
+            Description = "An ASP.NET Core Web API for managing SaleSquare domain, data, and presentation layers.",
             Contact = new OpenApiContact
             {
                 Name = "Contact the team",

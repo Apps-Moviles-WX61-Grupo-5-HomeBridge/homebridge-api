@@ -15,6 +15,7 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.20",
           "Microsoft.AspNetCore.OpenApi": "7.0.12",
           "Microsoft.EntityFrameworkCore": "7.0.20",
+          "Microsoft.NET.Build.Containers": "7.0.410",
           "Pomelo.EntityFrameworkCore.MySql": "7.0.0",
           "Shared": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0",
@@ -246,6 +247,7 @@
           }
         }
       },
+      "Microsoft.NET.Build.Containers/7.0.410": {},
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
       "Microsoft.OpenApi/1.4.3": {
@@ -621,6 +623,13 @@
       "sha512": "sha512-xvEil42RUe4Si/TuLDvglNXpklgCWMSecPduczXPS2BAypjheUehPqKLwIy8vSdzB4K2zza3yLgmODBt+J6ZxQ==",
       "path": "microsoft.identitymodel.tokens/7.6.0",
       "hashPath": "microsoft.identitymodel.tokens.7.6.0.nupkg.sha512"
+    },
+    "Microsoft.NET.Build.Containers/7.0.410": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gsMn8U6JcAB77G1jS2m26AUH/6ikJsDVlInnt+ntE6TvWPU/3PLw/Dz9duuri+KemCEPTbzmqjdjJsI5wFGkEQ==",
+      "path": "microsoft.net.build.containers/7.0.410",
+      "hashPath": "microsoft.net.build.containers.7.0.410.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
