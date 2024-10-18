@@ -7,22 +7,36 @@ namespace _3_Data.IAM.Persistence;
 public class UserManagerRepository : IUserManagerRepository
 {
     //  @Dependencies
-    private readonly PropertunityDataCenterContext _propertunityDataCenterContext;
+    private readonly PropertunityDataCenterContext _salesquareDataCenterContext;
 
     //  @Constructor
     public UserManagerRepository(
-        PropertunityDataCenterContext propertunityDataCenterContext
+        PropertunityDataCenterContext salesquareDataCenterContext
     )
     {
-        this._propertunityDataCenterContext = propertunityDataCenterContext;
+        this._salesquareDataCenterContext = salesquareDataCenterContext;
     }
 
     //  @Methods
     public async Task<UserInformation?> GetUserByIdAsync(int id)
     {
-        var result = await this._propertunityDataCenterContext.Users
+        var result = await this._salesquareDataCenterContext.Users
             .FirstOrDefaultAsync(u => u.Id == id);
 
         return result?._UserInformation;
+    }
+    public async Task<List<UserInformation>> GetUserByUsername(string username)
+    {
+        var result = await this._salesquareDataCenterContext.Users
+            .Where(u => u._UserInformation.Name.Contains(username))
+            .ToListAsync();
+        
+        var resultList = new List<UserInformation>();
+        foreach (User user in result)
+        {
+            resultList.Add(user._UserInformation);
+        }
+        
+        return resultList;
     }
 }

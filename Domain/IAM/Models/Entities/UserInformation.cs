@@ -13,9 +13,6 @@ public class UserInformation : ModelBase
     [MaxLength(15)]
     public string Name { get; set; }
     
-    [MaxLength(30)]
-    public string Lastname { get; set; }
-    
     [MaxLength(9)]
     public string PhoneNumber { get; set; }
     

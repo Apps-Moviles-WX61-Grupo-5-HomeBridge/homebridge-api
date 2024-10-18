@@ -22,7 +22,7 @@ public class AuthenticationMiddleware
     )
     {
         var isAllowAnonymous = await IsAllowAnonymousAsync(context);
-
+    
         if (isAllowAnonymous)
         {
             await _next(context);
@@ -64,10 +64,10 @@ public class AuthenticationMiddleware
         await _next(context);
     }
 
-    private Task<bool> IsAllowAnonymousAsync(HttpContext context)
+    private async Task<bool> IsAllowAnonymousAsync(HttpContext context)
     {
         var endpoint = context.GetEndpoint();
-        if (endpoint == null) return Task.FromResult(false);
+        if (endpoint == null) return await Task.FromResult(false);
 
         var allowAnonymous = (endpoint.Metadata.GetMetadata<IAllowAnonymous>() != null);
 
@@ -81,6 +81,6 @@ public class AuthenticationMiddleware
             }
         }
 
-        return Task.FromResult(allowAnonymous);
+        return await Task.FromResult(allowAnonymous);
     }
 }

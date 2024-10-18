@@ -41,7 +41,6 @@ public class RequestToModels : Profile
                 opt => opt.MapFrom(src => new UserInformation()
                     {
                         Name = src.Username,
-                        Lastname = src.Username,
                         PhoneNumber = src.PhoneNumber
                     }
                 )

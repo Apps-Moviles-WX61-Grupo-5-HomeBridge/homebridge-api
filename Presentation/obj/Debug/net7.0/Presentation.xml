@@ -57,7 +57,7 @@
             <response code="500"><b>Something wrong</b> appears to be with your query.</response>
             <response code="401"><b>Token may not be expired</b>, or any <b>input was incorrect</b>.</response>
         </member>
-        <member name="M:_1_API.IAM.Controllers.UserManagerController.GetUserInformation(_2_Domain.IAM.Models.Queries.GetUserByIdQuery)">
+        <member name="M:_1_API.IAM.Controllers.UserManagerController.GetUserInformation(System.Int32)">
             <summary>
                 Obtain the information of a user by its ID.
             </summary>
@@ -72,6 +72,22 @@
                 <para>so any request to get the information of any user (at least public information)</para>
                 <para>must be authorized through login. But for this purpose, this is set as public and</para>
                 <para>anyone can access to this controller without authorization.</para>
+            </remarks>
+            <response code="200">Returns <b>the information of the user</b>.</response>
+            <response code="404">User <b>not found</b>.</response>
+            <response code="500"><b>Something went wrong</b>. Have you tried to unplug the internet cable?</response>
+        </member>
+        <member name="M:_1_API.IAM.Controllers.UserManagerController.GetUserByUsername(_2_Domain.IAM.Models.Queries.GetUserByUsernameQuery)">
+            <summary>
+                Obtain the information of a user by its username. Your input should match the username.
+            </summary>
+            <returns>
+                Returns the information of a user of type <c>UserInformation</c>.
+            </returns>
+            <remarks>
+                This endpoint returns the information of a user of type <c>UserInformation</c>.
+                <para>If you were expecting to return also the user credentials, well not obviously.</para>
+                <para>You only need to provide a username to start searching.</para>
             </remarks>
             <response code="200">Returns <b>the information of the user</b>.</response>
             <response code="404">User <b>not found</b>.</response>
