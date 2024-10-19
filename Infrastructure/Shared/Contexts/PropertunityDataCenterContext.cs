@@ -41,5 +41,12 @@ public class PropertunityDataCenterContext : DbContext
         modelBuilder.Entity<RefreshTokenRecord>().ToTable("RefreshTokenRecord");
         modelBuilder.Entity<PublicationModel>().OwnsOne(p => p._Location);
         modelBuilder.Entity<PublicationModel>().ToTable("Publication");
+        
+        modelBuilder.Entity<PublicationModel>()
+            .Property(p => p.ImageList)
+            .HasConversion(
+                v => string.Join(";", v),
+                v => v.Split(';', StringSplitOptions.RemoveEmptyEntries).ToList()
+            );
     }
 }

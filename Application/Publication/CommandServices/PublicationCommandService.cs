@@ -5,6 +5,7 @@ using _3_Data;
 using _3_Shared.Domain.Models;
 using _3_Shared.Domain.Models.User;
 using _3_Shared.Middleware.Exceptions;
+using Domain.Publication.Models.ValueObjects;
 
 namespace Application.Publication.CommandServices;
 
@@ -54,6 +55,22 @@ public class PublicationCommandService : IPublicationCommandService
         {
             publication.Priority = (double) UserConstraints.PublicationPriorityBasicUser;
         }
+        
+        //  3.  Check if the publication type is valid
+        if (!Enum.IsDefined(typeof(EPropertyType), publication.Type)) throw new ArgumentException("Invalid ServiceType");
+        
+        //  4.  Check if the publication operation is valid
+        if (!Enum.IsDefined(typeof(EOperation), publication.Operation)) throw new ArgumentException("Invalid Operation");
+        
+        //  5.  Check if the publication sale state is valid
+        var saleStateWithoutSpaces = publication.SaleState.Replace(" ", "");
+        if (!Enum.IsDefined(typeof(ESaleState), saleStateWithoutSpaces)) throw new ArgumentException("Invalid SaleState");
+        publication.SaleState = saleStateWithoutSpaces;
+        
+        //  6.  Check if the publication project stage is valid
+        var projectStageWithoutSpaces = publication.ProjectStage.Replace(" ", "");
+        if (!Enum.IsDefined(typeof(EProjectStage), projectStageWithoutSpaces)) throw new ArgumentException("Invalid ProjectStage");
+        publication.ProjectStage = projectStageWithoutSpaces;
         
         return await this._publicationRepository.PostPublicationAsync(publication);
     }

@@ -13,3 +13,18 @@ C:\Users\USUARIO\Desktop\AppMoviles\SaleSquare\Domain\obj\Debug\net7.0\Domain.dl
 C:\Users\USUARIO\Desktop\AppMoviles\SaleSquare\Domain\obj\Debug\net7.0\refint\Domain.dll
 C:\Users\USUARIO\Desktop\AppMoviles\SaleSquare\Domain\obj\Debug\net7.0\Domain.pdb
 C:\Users\USUARIO\Desktop\AppMoviles\SaleSquare\Domain\obj\Debug\net7.0\ref\Domain.dll
+D:\CAMILA\UPC\Ciclo 6\Aplicaciones para Dispositivos Moviles\Trabajo grupo\homebridge-api\Domain\bin\Debug\net7.0\Domain.deps.json
+D:\CAMILA\UPC\Ciclo 6\Aplicaciones para Dispositivos Moviles\Trabajo grupo\homebridge-api\Domain\bin\Debug\net7.0\Domain.dll
+D:\CAMILA\UPC\Ciclo 6\Aplicaciones para Dispositivos Moviles\Trabajo grupo\homebridge-api\Domain\bin\Debug\net7.0\Domain.pdb
+D:\CAMILA\UPC\Ciclo 6\Aplicaciones para Dispositivos Moviles\Trabajo grupo\homebridge-api\Domain\bin\Debug\net7.0\Shared.dll
+D:\CAMILA\UPC\Ciclo 6\Aplicaciones para Dispositivos Moviles\Trabajo grupo\homebridge-api\Domain\bin\Debug\net7.0\Shared.pdb
+D:\CAMILA\UPC\Ciclo 6\Aplicaciones para Dispositivos Moviles\Trabajo grupo\homebridge-api\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+D:\CAMILA\UPC\Ciclo 6\Aplicaciones para Dispositivos Moviles\Trabajo grupo\homebridge-api\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\CAMILA\UPC\Ciclo 6\Aplicaciones para Dispositivos Moviles\Trabajo grupo\homebridge-api\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+D:\CAMILA\UPC\Ciclo 6\Aplicaciones para Dispositivos Moviles\Trabajo grupo\homebridge-api\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+D:\CAMILA\UPC\Ciclo 6\Aplicaciones para Dispositivos Moviles\Trabajo grupo\homebridge-api\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+D:\CAMILA\UPC\Ciclo 6\Aplicaciones para Dispositivos Moviles\Trabajo grupo\homebridge-api\Domain\obj\Debug\net7.0\Domain.csproj.CopyComplete
+D:\CAMILA\UPC\Ciclo 6\Aplicaciones para Dispositivos Moviles\Trabajo grupo\homebridge-api\Domain\obj\Debug\net7.0\Domain.dll
+D:\CAMILA\UPC\Ciclo 6\Aplicaciones para Dispositivos Moviles\Trabajo grupo\homebridge-api\Domain\obj\Debug\net7.0\refint\Domain.dll
+D:\CAMILA\UPC\Ciclo 6\Aplicaciones para Dispositivos Moviles\Trabajo grupo\homebridge-api\Domain\obj\Debug\net7.0\Domain.pdb
+D:\CAMILA\UPC\Ciclo 6\Aplicaciones para Dispositivos Moviles\Trabajo grupo\homebridge-api\Domain\obj\Debug\net7.0\ref\Domain.dll

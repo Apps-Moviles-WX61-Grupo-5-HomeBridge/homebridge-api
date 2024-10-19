@@ -70,6 +70,18 @@ public class RequestToModels : Profile
                         Address = src._Location_Address
                     }
                 )
-            );
+            )
+            .ForMember(dest => dest.ImageList, opt => opt.MapFrom(src => src.ImagesList))
+            .ForMember(dest => dest.CoveredArea, opt => opt.MapFrom(src => src.CoveredArea))
+            .ForMember(dest => dest.TotalArea, opt => opt.MapFrom(src => src.TotalArea))
+            .ForMember(dest => dest.DormitoryQuantity, opt => opt.MapFrom(src => src.DormitoryQuantity))
+            .ForMember(dest => dest.BathroomQuantity, opt => opt.MapFrom(src => src.BathroomQuantity))
+            .ForMember(dest => dest.ParkingLotQuantity, opt => opt.MapFrom(src => src.ParkingLotQuantity))
+            .ForMember(dest => dest.Antiquity, opt => opt.MapFrom(src => src.Antiquity))
+            .ForMember(dest => dest.Service, opt => opt.MapFrom(src => src.Service))
+            .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Type))
+            .ForMember(dest => dest.Operation, opt => opt.MapFrom(src => src.Operation))
+            .ForMember(dest => dest.SaleState, opt => opt.MapFrom(src => src.SaleState))
+            .ForMember(dest => dest.ProjectStage, opt => opt.MapFrom(src => src.ProjectStage));
     }
 }
