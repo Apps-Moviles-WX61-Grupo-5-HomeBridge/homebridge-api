@@ -7,11 +7,11 @@ namespace _3_Data.IAM.Persistence;
 public class UserManagerRepository : IUserManagerRepository
 {
     //  @Dependencies
-    private readonly PropertunityDataCenterContext _salesquareDataCenterContext;
+    private readonly SaleSquareDataCenterContext _salesquareDataCenterContext;
 
     //  @Constructor
     public UserManagerRepository(
-        PropertunityDataCenterContext salesquareDataCenterContext
+        SaleSquareDataCenterContext salesquareDataCenterContext
     )
     {
         this._salesquareDataCenterContext = salesquareDataCenterContext;

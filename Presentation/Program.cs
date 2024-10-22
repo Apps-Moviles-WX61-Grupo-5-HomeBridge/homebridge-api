@@ -138,7 +138,7 @@ builder.Services.AddAutoMapper(
 //  @Database
 var connectionString = builder.Configuration.GetConnectionString("salesquare");
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
-builder.Services.AddDbContext<PropertunityDataCenterContext>(
+builder.Services.AddDbContext<SaleSquareDataCenterContext>(
     dbContextOptions =>
     {
         dbContextOptions.UseMySql(connectionString,
@@ -159,7 +159,7 @@ app.UseCors("AllowAllOrigins");
 
 
 using (var scope = app.Services.CreateScope())
-using (var context = scope.ServiceProvider.GetService<PropertunityDataCenterContext>())
+using (var context = scope.ServiceProvider.GetService<SaleSquareDataCenterContext>())
 {
     context.Database.EnsureCreated();
 }

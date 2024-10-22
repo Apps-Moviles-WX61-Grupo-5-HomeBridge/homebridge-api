@@ -7,30 +7,30 @@ namespace _3_Data.IAM.Persistence;
 public class UserRegisterData : IUserRegisterData
 {
     //  @Dependencies
-    private readonly PropertunityDataCenterContext _propertunityDataCenterContext;
+    private readonly SaleSquareDataCenterContext _saleSquareDataCenterContext;
 
     //  @Constructor
     public UserRegisterData(
-        PropertunityDataCenterContext propertunityDataCenterContext
+        SaleSquareDataCenterContext saleSquareDataCenterContext
     )
     {
-        this._propertunityDataCenterContext = propertunityDataCenterContext;
+        this._saleSquareDataCenterContext = saleSquareDataCenterContext;
     }
 
     //  @Methods
     public async Task<int> CreateUserAsync(User data)
     {
-        var executionStrategy = this._propertunityDataCenterContext.Database.CreateExecutionStrategy();
+        var executionStrategy = this._saleSquareDataCenterContext.Database.CreateExecutionStrategy();
         
         await executionStrategy.ExecuteAsync(async () =>
         {
-            using (var transaction = await this._propertunityDataCenterContext.Database.BeginTransactionAsync())
+            using (var transaction = await this._saleSquareDataCenterContext.Database.BeginTransactionAsync())
             {
                 try
                 {
                     data._UserInformation.IsDeleted = false;
-                    this._propertunityDataCenterContext.Users.Add(data);
-                    await this._propertunityDataCenterContext.SaveChangesAsync();
+                    this._saleSquareDataCenterContext.Users.Add(data);
+                    await this._saleSquareDataCenterContext.SaveChangesAsync();
                     await transaction.CommitAsync();
                 }
                 catch (Exception exception)
@@ -45,7 +45,7 @@ public class UserRegisterData : IUserRegisterData
     }
     public async Task<User?> GetUserByEmailAsync(string email)
     {
-        var result = await this._propertunityDataCenterContext.Users.
+        var result = await this._saleSquareDataCenterContext.Users.
             Where(u => u._UserCredentials.Email == email)
             .FirstOrDefaultAsync();
         
