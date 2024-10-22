@@ -54,8 +54,8 @@ public class RequestToModels : Profile
         //      .ForMember(dest => dest.PriceMax, opt => opt.MapFrom(src => src.PriceMax));
         
         //  @GetPublicationRequest to @GetPublicationModel
-        CreateMap<GetPublicationQuery, GetPublicationQuery>()
-            .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id));
+        CreateMap<GetListPublicationQuery, GetListPublicationQuery>()
+            .ForMember(dest => dest.Amount, opt => opt.MapFrom(src => src.Amount));
         
         //  @PostPublicationRequest to @PublicationModel
         CreateMap<PostPublicationCommand, PublicationModel>()

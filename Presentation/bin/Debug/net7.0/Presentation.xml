@@ -117,11 +117,11 @@
             <response code="500"><b>Something wrong</b> appears to be with your query.</response>
             <response code="400">You <b>didn't provide correct information</b> for the creation of a new user.</response>
         </member>
-        <member name="M:_1_API.Publication.Controllers.PublicationController.GetPublication(_2_Domain.Publication.Models.Queries.GetPublicationQuery)">
+        <member name="M:_1_API.Publication.Controllers.PublicationController.GetPublicationById(_2_Domain.Publication.Models.Queries.GetPublicationByIdQuery)">
             <summary>
                 Search for publications but given a valid ID (and a state).
             </summary>
-            <param name="publicationGetQuery">Query request parameter that represents what publication to retrieve.</param>
+            <param name="publicationGetListQuery">Query request parameter that represents what publication to retrieve.</param>
             <returns>
                 Returns a single publication that matches the query parameters.
             </returns>

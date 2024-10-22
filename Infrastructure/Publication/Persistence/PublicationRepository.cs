@@ -20,11 +20,11 @@ public class PublicationRepository : IPublicationRepository
     }
 
     //  @Methods
-    public async Task<PublicationModel?> GetPublicationAsync(GetPublicationQuery query)
+    public async Task<PublicationModel?> GetPublicationAsync(GetPublicationByIdQuery query)
     {
         var result = await this._saleSquareDataCenterContext.Publication.
             Where(u => 
-                (u.Id == query.Id) && 
+                (u.Id == query.PublicationId) && 
                 (u.IsDeleted == false)
             ).FirstOrDefaultAsync();
         
@@ -56,7 +56,7 @@ public class PublicationRepository : IPublicationRepository
         return publication.Id;
     }
 
-    public async Task<List<PublicationModel>> GetUserPublicationsAsync(int userId)
+    public async Task<List<PublicationModel>> UserPublications(int userId)
     {
         var result = await this._saleSquareDataCenterContext.Publication.
             Where(u => 

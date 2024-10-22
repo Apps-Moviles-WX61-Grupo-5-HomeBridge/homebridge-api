@@ -37,7 +37,7 @@ public class PublicationCommandService : IPublicationCommandService
         //  @Validations
         //  1.  Users can't post more than 'UserConstraints.MaxNormalUserPublications' publications.
         //      An account upgrade is required for more publications.
-        var userPublications = await this._publicationRepository.GetUserPublicationsAsync(publication.UserId);
+        var userPublications = await this._publicationRepository.UserPublications(publication.UserId);
         if (
             (userPublications.Count >= (int)UserConstraints.MaxPublicationBasicUser) && 
             (result.Role == UserRole.BasicUser.ToString())

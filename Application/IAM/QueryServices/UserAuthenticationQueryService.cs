@@ -105,7 +105,8 @@ public class UserAuthenticationQueryService : IUserAuthenticationQueryService
             token = token,
             refreshToken = refreshToken,
             result = true,
-            message = "Refresh Token saved!"
+            message = "Refresh Token saved!",
+            userId = userId
         };
     }
     

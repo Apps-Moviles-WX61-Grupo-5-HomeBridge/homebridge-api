@@ -6,4 +6,5 @@ public class AuthenticationResults
     public string refreshToken { get; set; }
     public bool result { get; set; }
     public string message { get; set; }
+    public int userId { get; set; }
 }
