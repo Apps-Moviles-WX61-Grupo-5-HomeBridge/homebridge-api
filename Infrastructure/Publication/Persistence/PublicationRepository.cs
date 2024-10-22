@@ -124,4 +124,16 @@ public class PublicationRepository : IPublicationRepository
         
         return publication.Id;
     }
+
+    public async Task<List<PublicationModel>> Publications(int amount)
+    {
+        var result = await this._saleSquareDataCenterContext.Publication.
+            Where(u => 
+                (u.IsDeleted == false)
+            )
+            .Take(amount)
+            .ToListAsync();
+        
+        return result;
+    }
 }

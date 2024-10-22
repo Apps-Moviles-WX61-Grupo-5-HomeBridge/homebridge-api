@@ -81,6 +81,10 @@ public class RequestToModels : Profile
             .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Type))
             .ForMember(dest => dest.Operation, opt => opt.MapFrom(src => src.Operation))
             .ForMember(dest => dest.SaleState, opt => opt.MapFrom(src => src.SaleState))
-            .ForMember(dest => dest.ProjectStage, opt => opt.MapFrom(src => src.ProjectStage));
+            .ForMember(dest => dest.ProjectStage, opt => opt.MapFrom(src => src.ProjectStage))
+            .ForMember(dest => dest.Size, opt => opt.MapFrom(src => src.Size))
+            .ForMember(dest => dest.Rooms, opt => opt.MapFrom(src => src.Rooms))
+            .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Price))
+            .ForMember(dest => dest.Garages, opt => opt.MapFrom(src => src.Garages));
     }
 }

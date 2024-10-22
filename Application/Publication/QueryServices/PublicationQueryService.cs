@@ -3,6 +3,7 @@ using _2_Domain.Publication.Models.Queries;
 using _2_Domain.Publication.Repositories;
 using _2_Domain.Publication.Services;
 using _3_Data;
+using _3_Shared.Domain.Models.Publication;
 using _3_Shared.Domain.Models.User;
 using _3_Shared.Middleware.Exceptions;
 
@@ -18,7 +19,7 @@ public class PublicationQueryService : IPublicationQueryService
     public PublicationQueryService(
         IPublicationRepository publicationRepository,
         IUserManagerRepository userManagerRepository
-    )
+    ) 
     {
         this._publicationRepository = publicationRepository;
         this._userManagerRepository = userManagerRepository;
@@ -76,6 +77,25 @@ public class PublicationQueryService : IPublicationQueryService
 
         return result;
     }
-    
-    public Task<List<PublicationModel>> Publications(int amount);
+
+    public async Task<List<PublicationModel>> Publications(int amount)
+    {
+        if (amount > (int) PublicationConstraints.MaxPublicationRequests) amount = (int) PublicationConstraints.MaxPublicationRequests;
+        var result = await this._publicationRepository.Publications(amount);
+        if (result == null) throw new PublicationNotFoundException("Publication not found!");
+
+        foreach (var publication in result)
+        {
+            //  @Validations
+            //  1.  Check if the publication has expired, otherwise verify and continue.
+            var user = await this._userManagerRepository.GetUserByIdAsync(publication.UserId);
+            if (((DateTime.Now - publication.CreatedDate).TotalDays > (double) UserConstraints.TimeActiveInDaysBasicUser) &&
+                (user.Role == UserRole.BasicUser.ToString()))
+            {
+                await this._publicationRepository.MarkAsExpiredAsync(publication);
+            }
+        }
+
+        return result;
+    }
 }

@@ -94,7 +94,7 @@ public class PublicationController : ControllerBase
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
         
-        var result = await this._publicationQueryService.PublicationsByUserId(userId);
+        var result = await this._publicationQueryService.Publications(amount);
 
         if (result == null) return NotFound();
 

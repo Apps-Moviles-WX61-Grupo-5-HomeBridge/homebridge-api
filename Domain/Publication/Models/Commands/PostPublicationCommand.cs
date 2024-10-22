@@ -23,4 +23,10 @@ public class PostPublicationCommand
     public DateTime ProjectStartDate { get; set; }
     public int Antiquity { get; set; }
     public string Service { get; set; }
+    
+    public int Size { get; set; }
+    
+    public int Rooms { get; set; }
+    
+    public int Garages { get; set; }
 }

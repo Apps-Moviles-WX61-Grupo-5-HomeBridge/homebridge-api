@@ -12,4 +12,6 @@ public enum PublicationConstraints
     //  it can be 0 if the publication's object to be sold is free.
     //  ~for some reason ;-;
     MinPrice = 0,   
+    
+    MaxPublicationRequests = 20
 }
