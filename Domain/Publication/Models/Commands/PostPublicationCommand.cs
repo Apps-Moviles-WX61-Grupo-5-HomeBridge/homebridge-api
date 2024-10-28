@@ -1,6 +1,4 @@
 using System.ComponentModel;
-using _2_Domain.Publication.Models.Entities;
-using Domain.Publication.Models.ValueObjects;
 
 namespace _2_Domain.Publication.Models.Commands;
 
@@ -25,4 +23,10 @@ public class PostPublicationCommand
     public DateTime ProjectStartDate { get; set; }
     public int Antiquity { get; set; }
     public string Service { get; set; }
+    
+    public int Size { get; set; }
+    
+    public int Rooms { get; set; }
+    
+    public int Garages { get; set; }
 }

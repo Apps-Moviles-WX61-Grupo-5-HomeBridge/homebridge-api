@@ -5,11 +5,13 @@ namespace _2_Domain.Publication.Repositories;
 
 public interface IPublicationRepository
 {
-    public Task<PublicationModel?> GetPublicationAsync(GetPublicationQuery id);
+    public Task<PublicationModel?> GetPublicationAsync(GetPublicationByIdQuery id);
     
     public Task<int> PostPublicationAsync(PublicationModel publication);
     
-    public Task<List<PublicationModel>> GetUserPublicationsAsync(int userId);
+    public Task<List<PublicationModel>> UserPublications(int userId);
+    
+    public Task<List<PublicationModel>> Publications(int amount);
     
     public Task<int> DeletePublicationAsync(int publicationId);
     

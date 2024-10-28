@@ -41,7 +41,6 @@ public class RequestToModels : Profile
                 opt => opt.MapFrom(src => new UserInformation()
                     {
                         Name = src.Username,
-                        Lastname = src.Username,
                         PhoneNumber = src.PhoneNumber
                     }
                 )
@@ -55,8 +54,8 @@ public class RequestToModels : Profile
         //      .ForMember(dest => dest.PriceMax, opt => opt.MapFrom(src => src.PriceMax));
         
         //  @GetPublicationRequest to @GetPublicationModel
-        CreateMap<GetPublicationQuery, GetPublicationQuery>()
-            .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id));
+        CreateMap<GetListPublicationQuery, GetListPublicationQuery>()
+            .ForMember(dest => dest.Amount, opt => opt.MapFrom(src => src.Amount));
         
         //  @PostPublicationRequest to @PublicationModel
         CreateMap<PostPublicationCommand, PublicationModel>()
@@ -82,6 +81,10 @@ public class RequestToModels : Profile
             .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Type))
             .ForMember(dest => dest.Operation, opt => opt.MapFrom(src => src.Operation))
             .ForMember(dest => dest.SaleState, opt => opt.MapFrom(src => src.SaleState))
-            .ForMember(dest => dest.ProjectStage, opt => opt.MapFrom(src => src.ProjectStage));
+            .ForMember(dest => dest.ProjectStage, opt => opt.MapFrom(src => src.ProjectStage))
+            .ForMember(dest => dest.Size, opt => opt.MapFrom(src => src.Size))
+            .ForMember(dest => dest.Rooms, opt => opt.MapFrom(src => src.Rooms))
+            .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Price))
+            .ForMember(dest => dest.Garages, opt => opt.MapFrom(src => src.Garages));
     }
 }

@@ -11,20 +11,20 @@ namespace _3_Data.IAM.Persistence;
 public class UserAuthenticationData : IUserAuthenticationData
 {
     //  @Dependencies
-    private readonly PropertunityDataCenterContext _propertunityDataCenterContext;
+    private readonly SaleSquareDataCenterContext _saleSquareDataCenterContext;
 
     //  @Constructor
     public UserAuthenticationData(
-        PropertunityDataCenterContext propertunityDataCenterContext
+        SaleSquareDataCenterContext saleSquareDataCenterContext
     )
     {
-        this._propertunityDataCenterContext = propertunityDataCenterContext;
+        this._saleSquareDataCenterContext = saleSquareDataCenterContext;
     }
     
     //  @Methods
     public async Task<User?> GetUserByEmailAsync(GetTokenQuery query)
     {
-        var result = this._propertunityDataCenterContext.Users.
+        var result = this._saleSquareDataCenterContext.Users.
             FirstOrDefaultAsync(user =>
             user._UserCredentials.Email == query.Email
         );
@@ -33,7 +33,7 @@ public class UserAuthenticationData : IUserAuthenticationData
     }
     public async Task<RefreshTokenRecord?> FindExistingRefreshTokenAsync(CreateRefreshTokenCommand refreshToken)
     {
-        var result = await this._propertunityDataCenterContext.RefreshTokenRecords.
+        var result = await this._saleSquareDataCenterContext.RefreshTokenRecords.
             FirstOrDefaultAsync(r =>
                 r.Token == refreshToken.ExpiredToken &&
                 r.RefreshToken == refreshToken.RefreshToken &&
@@ -44,8 +44,8 @@ public class UserAuthenticationData : IUserAuthenticationData
     }
     public async Task<int> SaveRefreshTokenAsync(RefreshTokenRecord refreshTokenRecord)
     {
-        await this._propertunityDataCenterContext.RefreshTokenRecords.AddAsync(refreshTokenRecord);
-        await this._propertunityDataCenterContext.SaveChangesAsync();
+        await this._saleSquareDataCenterContext.RefreshTokenRecords.AddAsync(refreshTokenRecord);
+        await this._saleSquareDataCenterContext.SaveChangesAsync();
 
         return 1;
     }

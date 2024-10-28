@@ -37,7 +37,7 @@ public class PublicationCommandService : IPublicationCommandService
         //  @Validations
         //  1.  Users can't post more than 'UserConstraints.MaxNormalUserPublications' publications.
         //      An account upgrade is required for more publications.
-        var userPublications = await this._publicationRepository.GetUserPublicationsAsync(publication.UserId);
+        var userPublications = await this._publicationRepository.UserPublications(publication.UserId);
         if (
             (userPublications.Count >= (int)UserConstraints.MaxPublicationBasicUser) && 
             (result.Role == UserRole.BasicUser.ToString())
@@ -65,7 +65,7 @@ public class PublicationCommandService : IPublicationCommandService
         //  5.  Check if the publication sale state is valid
         var saleStateWithoutSpaces = publication.SaleState.Replace(" ", "");
         if (!Enum.IsDefined(typeof(ESaleState), saleStateWithoutSpaces)) throw new ArgumentException("Invalid SaleState");
-        publication.SaleState = saleStateWithoutSpaces;
+                publication.SaleState = saleStateWithoutSpaces;
         
         //  6.  Check if the publication project stage is valid
         var projectStageWithoutSpaces = publication.ProjectStage.Replace(" ", "");

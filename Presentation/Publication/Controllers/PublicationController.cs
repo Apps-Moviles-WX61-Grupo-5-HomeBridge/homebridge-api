@@ -35,7 +35,7 @@ public class PublicationController : ControllerBase
     /// <summary>
     ///     Search for publications but given a valid ID (and a state).
     /// </summary>
-    /// <param name="publicationGetQuery">Query request parameter that represents what publication to retrieve.</param>
+    /// <param name="publicationGetListQuery">Query request parameter that represents what publication to retrieve.</param>
     /// <returns>
     ///     Returns a single publication that matches the query parameters.
     /// </returns>
@@ -51,16 +51,15 @@ public class PublicationController : ControllerBase
     /// <response code="500"><b>Something wrong</b> appears to be with your query.</response>
     /// <response code="404">Returns <b>nothing (null)</b> as no match was found.</response>
     [HttpGet]
-    [Route("getPublication")]
-    public async Task<IActionResult> GetPublication([FromQuery] GetPublicationQuery publicationGetQuery)
+    [Route("publicationById")]
+    public async Task<IActionResult> GetPublicationById([FromQuery] GetPublicationByIdQuery publicationGetListQuery)
     {
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
         
-        var getPublicationModel = this._mapper.Map<GetPublicationQuery>(publicationGetQuery);
-        var result = await this._publicationQueryService.Handle(getPublicationModel);
+        var result = await this._publicationQueryService.Handle(publicationGetListQuery);
 
         if (result == null)
         {
@@ -70,6 +69,37 @@ public class PublicationController : ControllerBase
         return Ok(result);
     }
     
+    [HttpGet]
+    [Route("userPublications")]
+    public async Task<IActionResult> GetPublicationsByUserId([FromQuery] int userId)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        
+        var result = await this._publicationQueryService.PublicationsByUserId(userId);
+
+        if (result == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(result);
+    }
+    
+    [HttpGet]
+    [Route("publications")]
+    public async Task<IActionResult> GetPublications([FromQuery] int amount)
+    {
+        if (!ModelState.IsValid) return BadRequest(ModelState);
+        
+        var result = await this._publicationQueryService.Publications(amount);
+
+        if (result == null) return NotFound();
+
+        return Ok(result);
+    }
     
     
     /// <summary>

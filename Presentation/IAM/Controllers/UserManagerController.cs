@@ -52,22 +52,53 @@ public class UserManagerController : ControllerBase
     /// <response code="404">User <b>not found</b>.</response>
     /// <response code="500"><b>Something went wrong</b>. Have you tried to unplug the internet cable?</response>
     [HttpGet]
-    [Route("getUserInformation")]
-    [CustomAuthorize("BasicUser", "PremiumUser", "Admin")]
-    public async Task<IActionResult> GetUserInformation(GetUserByIdQuery id)
+    [Route("findById")]
+    [AllowAnonymous]
+    public async Task<IActionResult> GetUserInformation([FromQuery] int id)
     {
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
 
-        var result = await this._userManagerQueryService.Handle(id);
+        var result = await this._userManagerQueryService.Handle(new GetUserByIdQuery(id));
 
         if (result == null)
         {
             throw new UserNotFoundException("User not found with that ID.");
         }
 
+        return Ok(result);
+    }
+
+    
+    
+    /// <summary>
+    ///     Obtain the information of a user by its username. Your input should match the username.
+    /// </summary>
+    /// <returns>
+    ///     Returns the information of a user of type <c>UserInformation</c>.
+    /// </returns>
+    /// <remarks>
+    ///     This endpoint returns the information of a user of type <c>UserInformation</c>.
+    ///     <para>If you were expecting to return also the user credentials, well not obviously.</para>
+    ///     <para>You only need to provide a username to start searching.</para>
+    /// </remarks>
+    /// <response code="200">Returns <b>the information of the user</b>.</response>
+    /// <response code="404">User <b>not found</b>.</response>
+    /// <response code="500"><b>Something went wrong</b>. Have you tried to unplug the internet cable?</response>
+    [HttpGet]
+    [Route("findByUsername")]
+    [AllowAnonymous]
+    public async Task<IActionResult> GetUserByUsername([FromQuery] GetUserByUsernameQuery query)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        
+        var result = await this._userManagerQueryService.Handle(query);
+        
         return Ok(result);
     }
 }

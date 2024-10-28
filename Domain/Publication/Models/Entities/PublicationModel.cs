@@ -3,7 +3,6 @@ using _3_Shared.Domain.Models;
 using _3_Shared.Domain.Models.Publication;
 using _3_Shared.Domain.Models.User;
 using _3_Shared.Models.Entities;
-using Domain.Publication.Models.ValueObjects;
 
 namespace _2_Domain.Publication.Models.Entities;
 
@@ -49,8 +48,7 @@ public class PublicationModel : ModelBase
 
     [Required] public double Priority { get; set; } = (double)UserConstraints.PublicationPriorityPremiumUser;
     
-    [Required]
-    public List<string> ImageList { get; set; }
+    [Required] public List<string> ImageList { get; set; }
     
     [Required] public float CoveredArea { get; set; }
     
@@ -66,6 +64,7 @@ public class PublicationModel : ModelBase
     
     [Required] public int BathroomQuantity { get; set; }
     
+    
     [Required] public int ParkingLotQuantity { get; set; }
     
     [Required] public string SaleState { get; set; }
@@ -77,6 +76,12 @@ public class PublicationModel : ModelBase
     [Required] public int Antiquity { get; set; }
     
     public string Service { get; set; }
+    
+    [Required] public int Size { get; set; }
+    
+    [Required] public int Rooms { get; set; }
+    
+    [Required] public int Garages { get; set; }
     
     public bool HasExpired { get; set; } = false;
     public DateTime ExpiresAt { get; set; }

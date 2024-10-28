@@ -9,20 +9,20 @@ namespace _3_Data.Search.Persistence;
 public class SearchRepository : ISearchRepository
 {
     //  @Dependencies
-    private readonly PropertunityDataCenterContext _propertunityDataCenterContext;
+    private readonly SaleSquareDataCenterContext _saleSquareDataCenterContext;
 
     //  @Constructor
     public SearchRepository(
-        PropertunityDataCenterContext propertunityDataCenterContext
+        SaleSquareDataCenterContext saleSquareDataCenterContext
     )
     {
-        this._propertunityDataCenterContext = propertunityDataCenterContext;
+        this._saleSquareDataCenterContext = saleSquareDataCenterContext;
     }
 
     //  @Methods
     public async Task<List<PublicationModel>> SearchAsync(SearchQuery search)
     {
-        var result = await this._propertunityDataCenterContext.Publication.Where(u =>
+        var result = await this._saleSquareDataCenterContext.Publication.Where(u =>
                 search.PriceMin <= u.Price &&
                 u.Price <= search.PriceMax &&
                 u._Location.Address.Contains(search.SearchInput) &&
