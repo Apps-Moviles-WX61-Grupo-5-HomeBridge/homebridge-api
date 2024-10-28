@@ -9,4 +9,6 @@ public interface IPublicationQueryService
      public Task<List<PublicationModel>> PublicationsByUserId(int userId);
      
      public Task<List<PublicationModel>> Publications(int amount);
+     
+     public Task<ImageListModel> ImageListByPublicationId(int publicationId);
 }

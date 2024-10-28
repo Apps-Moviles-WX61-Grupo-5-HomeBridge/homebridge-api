@@ -48,8 +48,6 @@ public class PublicationModel : ModelBase
 
     [Required] public double Priority { get; set; } = (double)UserConstraints.PublicationPriorityPremiumUser;
     
-    [Required] public List<string> ImageList { get; set; }
-    
     [Required] public float CoveredArea { get; set; }
     
     [Required] public float TotalArea { get; set; }
@@ -74,8 +72,6 @@ public class PublicationModel : ModelBase
     [Required] public DateTime ProjectStartDate { get; set; }
     
     [Required] public int Antiquity { get; set; }
-    
-    public string Service { get; set; }
     
     [Required] public int Size { get; set; }
     

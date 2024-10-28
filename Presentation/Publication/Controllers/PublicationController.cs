@@ -101,6 +101,24 @@ public class PublicationController : ControllerBase
         return Ok(result);
     }
     
+    [HttpGet]
+    [Route("imageList")]
+    public async Task<IActionResult> GetImageListByPublicationId([FromQuery] int publicationId)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        
+        var result = await this._publicationQueryService.ImageListByPublicationId(publicationId);
+
+        if (result == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(result);
+    }
     
     /// <summary>
     ///     Posts (creates) a publication based on your post parameters.
@@ -144,8 +162,45 @@ public class PublicationController : ControllerBase
 
         return Ok(result);
     }
+    
+    /// <summary>
+    ///     Posts (creates) a imageList based on your post parameters.
+    /// </summary>
+    /// <param name="imageListPostCommand">Body request parameters that represents a imageList instance.</param>
+    /// <returns>
+    ///     Returns a valid id of the imageList that was posted.
+    /// </returns>
+    /// <remarks>
+    ///     Post (create) a new imageList based on the parameters provided.
+    ///     <para>The type of this parameter is an instance of <c>PostImageListRequest</c>.</para>
+    ///     <para><c>PostImageListRequest</c> has the following properties: </para>
+    ///         <para> &#149; <b>PublicationId</b>: Which publication does this imageList belongs to? Provide a valid id. </para>
+    ///         <para> &#149; <b>ImageList</b>: A list of images url. </para>
+    ///     <para>Note that UserId should be completed automatically because the user have already logged in.</para>
+    /// </remarks>
+    /// <response code="200">Returns <b>a valid id</b> of the imageList that was posted.</response>
+    /// <response code="500"><b>Something wrong</b> appears to be with your query.</response>
+    /// <response code="400">Your imageList <b>couldn't be created</b>; bad request.</response>
+    //  [Authorize]
+    [HttpPost]
+    [Route("postImageList")]
+    public async Task<IActionResult> PostImageList([FromBody] PostImageListCommand imageListCommand)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        
+        var imagesListModel = this._mapper.Map<ImageListModel>(imageListCommand);
+        var result = await this._publicationCommandService.Handle(imagesListModel);
 
+        if (result <= 0)
+        {
+            return BadRequest("ImageList could not be posted as an invalid ID was returned.");
+        }
 
+        return Ok(result);
+    }
 
     /// <summary>
     ///     Softly deletes a publication based on the provided ID.

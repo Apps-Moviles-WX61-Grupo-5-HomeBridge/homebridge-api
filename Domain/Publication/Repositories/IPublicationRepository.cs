@@ -16,4 +16,8 @@ public interface IPublicationRepository
     public Task<int> DeletePublicationAsync(int publicationId);
     
     public Task<int> MarkAsExpiredAsync(PublicationModel publication);
+    
+    public Task<ImageListModel?> ImageList(int publicationId);
+    
+    public Task<int> PostImageListAsync(ImageListModel imageList);
 }

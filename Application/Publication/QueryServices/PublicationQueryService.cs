@@ -98,4 +98,14 @@ public class PublicationQueryService : IPublicationQueryService
 
         return result;
     }
+    
+    public async Task<ImageListModel> ImageListByPublicationId(int publicationId)
+    {
+        if (publicationId <= 0) throw new InvalidIdException("Invalid PublicationId!");
+        
+        var result = await this._publicationRepository.ImageList(publicationId);
+        if (result == null) throw new ImageListNotFoundException("ImageList not found!");
+
+        return result;
+    }
 }

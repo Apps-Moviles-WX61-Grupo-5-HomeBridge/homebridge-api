@@ -1,4 +1,5 @@
 using _2_Domain.Publication.Models.Entities;
+using _2_Domain.Publication.Models.Queries;
 using _2_Domain.Publication.Repositories;
 using _2_Domain.Publication.Services;
 using _3_Data;
@@ -83,5 +84,18 @@ public class PublicationCommandService : IPublicationCommandService
         }
         
         return await this._publicationRepository.DeletePublicationAsync(id);
+    }
+    
+    public async Task<int> Handle(ImageListModel imageList)
+    {
+        var query = new GetPublicationByIdQuery() { PublicationId = imageList.PublicationId };
+        
+        var result = await this._publicationRepository.GetPublicationAsync(query);
+        if (result == null)
+        {
+            throw new ArgumentException("Publication not found with this Id!");
+        }
+        
+        return await this._publicationRepository.PostImageListAsync(imageList);
     }
 }

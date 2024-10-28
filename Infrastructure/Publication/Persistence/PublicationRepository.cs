@@ -125,6 +125,42 @@ public class PublicationRepository : IPublicationRepository
         return publication.Id;
     }
 
+    public async Task<ImageListModel?> ImageList(int publicationId)
+    {
+        var result = await this._saleSquareDataCenterContext.ImageList.
+            Where(u => 
+                (u.PublicationId == publicationId) && 
+                (u.IsDeleted == false)
+            ).FirstOrDefaultAsync();
+        
+        return result;
+    }
+
+    public async Task<int> PostImageListAsync(ImageListModel imageList)
+    {
+        var executionStrategy = this._saleSquareDataCenterContext.Database.CreateExecutionStrategy();
+        
+        await executionStrategy.ExecuteAsync(async () =>
+        {
+            using (var transaction = await this._saleSquareDataCenterContext.Database.BeginTransactionAsync())
+            {
+                try
+                {
+                    imageList.IsDeleted = false;
+                    this._saleSquareDataCenterContext.ImageList.Add(imageList);
+                    await this._saleSquareDataCenterContext.SaveChangesAsync();
+                    await transaction.CommitAsync();
+                }
+                catch (Exception exception)
+                {
+                    await transaction.RollbackAsync();
+                }
+            }        
+        });
+        
+        return imageList.Id;
+    }
+
     public async Task<List<PublicationModel>> Publications(int amount)
     {
         var result = await this._saleSquareDataCenterContext.Publication.
