@@ -7,7 +7,6 @@ using _2_Domain.IAM.Repositories;
 using _2_Domain.IAM.Services;
 using _2_Domain.IAM.Services.Commands;
 using _2_Domain.IAM.Services.Queries;
-using _2_Domain.Publication.Repositories;
 using _2_Domain.Publication.Services;
 using _2_Domain.Search.Repositories;
 using _2_Domain.Search.Services;
@@ -23,6 +22,8 @@ using Application.Publication.QueryServices;
 using Application.Search.CommandServices;
 using Application.Search.QueryServices;
 using AutoMapper;
+using Domain.Publication.Repositories;
+using Domain.Publication.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -59,7 +60,7 @@ builder.Services.AddSwaggerGen(options =>
                 Name = "MIT License",
                 Url = new Uri("https://opensource.org/licenses/MIT")
             },
-            TermsOfService = new Uri("https://propertunity.com/terms-of-service")
+            TermsOfService = new Uri("https://finsimple.com/terms-of-service")
         });
         
         options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -164,23 +165,12 @@ using (var context = scope.ServiceProvider.GetService<SaleSquareDataCenterContex
     context.Database.EnsureCreated();
 }
 
-//  Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-    });
-}
-
-app.UseAuthentication();
-
+app.UseSwagger();
+app.UseSwaggerUI(c => { });
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
+app.UseHttpsRedirection();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.UseMiddleware<AuthenticationMiddleware>();
-
 app.Run();

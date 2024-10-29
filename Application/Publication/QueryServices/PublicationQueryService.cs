@@ -1,11 +1,13 @@
 using _2_Domain.Publication.Models.Entities;
 using _2_Domain.Publication.Models.Queries;
-using _2_Domain.Publication.Repositories;
 using _2_Domain.Publication.Services;
 using _3_Data;
 using _3_Shared.Domain.Models.Publication;
 using _3_Shared.Domain.Models.User;
 using _3_Shared.Middleware.Exceptions;
+using Domain.Publication.Models.Queries;
+using Domain.Publication.Repositories;
+using Domain.Publication.Services;
 
 namespace Application.Publication.QueryServices;
 
@@ -78,10 +80,11 @@ public class PublicationQueryService : IPublicationQueryService
         return result;
     }
 
-    public async Task<List<PublicationModel>> Publications(int amount)
+    public async Task<List<PublicationModel>> Publications(GetPublicationQuery query)
     {
+        var amount = query.Amount;
         if (amount > (int) PublicationConstraints.MaxPublicationRequests) amount = (int) PublicationConstraints.MaxPublicationRequests;
-        var result = await this._publicationRepository.Publications(amount);
+        var result = await this._publicationRepository.Publications(query, amount);
         if (result == null) throw new PublicationNotFoundException("Publication not found!");
 
         foreach (var publication in result)

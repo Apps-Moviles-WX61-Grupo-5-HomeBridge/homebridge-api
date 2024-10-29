@@ -1,7 +1,8 @@
 using _2_Domain.Publication.Models.Entities;
 using _2_Domain.Publication.Models.Queries;
-using _2_Domain.Publication.Repositories;
 using _3_Data.Shared.Contexts;
+using Domain.Publication.Models.Queries;
+using Domain.Publication.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace _3_Data.Publication.Persistence;
@@ -161,11 +162,19 @@ public class PublicationRepository : IPublicationRepository
         return imageList.Id;
     }
 
-    public async Task<List<PublicationModel>> Publications(int amount)
+    public async Task<List<PublicationModel>> Publications(GetPublicationQuery query, int amount)
     {
-        var result = await this._saleSquareDataCenterContext.Publication.
-            Where(u => 
-                (u.IsDeleted == false)
+        var result = await this._saleSquareDataCenterContext.Publication
+            .Where(u => 
+                (u.IsDeleted == false) &&
+                (u._Location.Address.Contains(query.Location) ||
+                 (u.Operation == query.OperationType) ||
+                 (u.PlaceType == query.PlaceType)) ||
+                ((query.PriceFrom <= u.Price) && (u.Price <= query.PriceTo)) || 
+                (query.Bathrooms <= u.BathroomQuantity) ||
+                (query.Garages <= u.Garages) || 
+                (query.Rooms <= u.Rooms) ||
+                ((query.AreaFrom <= u.TotalArea) && (u.TotalArea <= query.AreaTo))
             )
             .Take(amount)
             .ToListAsync();

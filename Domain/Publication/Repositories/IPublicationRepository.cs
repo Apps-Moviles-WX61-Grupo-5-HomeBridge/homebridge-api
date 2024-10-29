@@ -1,7 +1,8 @@
 using _2_Domain.Publication.Models.Entities;
 using _2_Domain.Publication.Models.Queries;
+using Domain.Publication.Models.Queries;
 
-namespace _2_Domain.Publication.Repositories;
+namespace Domain.Publication.Repositories;
 
 public interface IPublicationRepository
 {
@@ -11,7 +12,7 @@ public interface IPublicationRepository
     
     public Task<List<PublicationModel>> UserPublications(int userId);
     
-    public Task<List<PublicationModel>> Publications(int amount);
+    public Task<List<PublicationModel>> Publications(GetPublicationQuery query, int amount);
     
     public Task<int> DeletePublicationAsync(int publicationId);
     

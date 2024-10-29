@@ -5,6 +5,8 @@ using _2_Domain.Publication.Models.Entities;
 using _2_Domain.Publication.Models.Queries;
 using _2_Domain.Publication.Services;
 using AutoMapper;
+using Domain.Publication.Models.Queries;
+using Domain.Publication.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _1_API.Publication.Controllers;
@@ -90,11 +92,11 @@ public class PublicationController : ControllerBase
     
     [HttpGet]
     [Route("publications")]
-    public async Task<IActionResult> GetPublications([FromQuery] int amount)
+    public async Task<IActionResult> GetPublications([FromQuery] GetPublicationQuery query)
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
         
-        var result = await this._publicationQueryService.Publications(amount);
+        var result = await this._publicationQueryService.Publications(query);
 
         if (result == null) return NotFound();
 
@@ -103,14 +105,14 @@ public class PublicationController : ControllerBase
     
     [HttpGet]
     [Route("imageList")]
-    public async Task<IActionResult> GetImageListByPublicationId([FromQuery] int publicationId)
+    public async Task<IActionResult> GetImageListByPublicationId([FromQuery] int amount)
     {
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
         
-        var result = await this._publicationQueryService.ImageListByPublicationId(publicationId);
+        var result = await this._publicationQueryService.ImageListByPublicationId(amount);
 
         if (result == null)
         {

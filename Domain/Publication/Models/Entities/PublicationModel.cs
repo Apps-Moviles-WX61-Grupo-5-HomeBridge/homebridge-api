@@ -48,15 +48,11 @@ public class PublicationModel : ModelBase
 
     [Required] public double Priority { get; set; } = (double)UserConstraints.PublicationPriorityPremiumUser;
     
-    [Required] public float CoveredArea { get; set; }
-    
     [Required] public float TotalArea { get; set; }
     
-    [Required] public string Type { get; set; }
+    [Required] public int PlaceType { get; set; }
     
-    [Required] public string Operation { get; set; }
-    
-    [Required] public string Delivery { get; set; }
+    [Required] public int Operation { get; set; }
     
     [Required] public int DormitoryQuantity { get; set; }
     
@@ -64,10 +60,6 @@ public class PublicationModel : ModelBase
     
     
     [Required] public int ParkingLotQuantity { get; set; }
-    
-    [Required] public string SaleState { get; set; }
-    
-    [Required] public string ProjectStage { get; set; }
     
     [Required] public DateTime ProjectStartDate { get; set; }
     

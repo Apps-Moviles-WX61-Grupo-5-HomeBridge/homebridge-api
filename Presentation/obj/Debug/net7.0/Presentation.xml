@@ -160,6 +160,26 @@
             <response code="500"><b>Something wrong</b> appears to be with your query.</response>
             <response code="400">Your publication <b>couldn't be created</b>; bad request.</response>
         </member>
+        <member name="M:_1_API.Publication.Controllers.PublicationController.PostImageList(_2_Domain.Publication.Models.Commands.PostImageListCommand)">
+            <summary>
+                Posts (creates) a imageList based on your post parameters.
+            </summary>
+            <param name="imageListPostCommand">Body request parameters that represents a imageList instance.</param>
+            <returns>
+                Returns a valid id of the imageList that was posted.
+            </returns>
+            <remarks>
+                Post (create) a new imageList based on the parameters provided.
+                <para>The type of this parameter is an instance of <c>PostImageListRequest</c>.</para>
+                <para><c>PostImageListRequest</c> has the following properties: </para>
+                    <para> &#149; <b>PublicationId</b>: Which publication does this imageList belongs to? Provide a valid id. </para>
+                    <para> &#149; <b>ImageList</b>: A list of images url. </para>
+                <para>Note that UserId should be completed automatically because the user have already logged in.</para>
+            </remarks>
+            <response code="200">Returns <b>a valid id</b> of the imageList that was posted.</response>
+            <response code="500"><b>Something wrong</b> appears to be with your query.</response>
+            <response code="400">Your imageList <b>couldn't be created</b>; bad request.</response>
+        </member>
         <member name="M:_1_API.Publication.Controllers.PublicationController.DeletePublication(System.Int32)">
             <summary>
                 Softly deletes a publication based on the provided ID.
