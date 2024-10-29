@@ -70,14 +70,12 @@ public class RequestToModels : Profile
                     }
                 )
             )
-            .ForMember(dest => dest.ImageList, opt => opt.MapFrom(src => src.ImagesList))
             .ForMember(dest => dest.CoveredArea, opt => opt.MapFrom(src => src.CoveredArea))
             .ForMember(dest => dest.TotalArea, opt => opt.MapFrom(src => src.TotalArea))
             .ForMember(dest => dest.DormitoryQuantity, opt => opt.MapFrom(src => src.DormitoryQuantity))
             .ForMember(dest => dest.BathroomQuantity, opt => opt.MapFrom(src => src.BathroomQuantity))
             .ForMember(dest => dest.ParkingLotQuantity, opt => opt.MapFrom(src => src.ParkingLotQuantity))
             .ForMember(dest => dest.Antiquity, opt => opt.MapFrom(src => src.Antiquity))
-            .ForMember(dest => dest.Service, opt => opt.MapFrom(src => src.Service))
             .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Type))
             .ForMember(dest => dest.Operation, opt => opt.MapFrom(src => src.Operation))
             .ForMember(dest => dest.SaleState, opt => opt.MapFrom(src => src.SaleState))
@@ -86,5 +84,9 @@ public class RequestToModels : Profile
             .ForMember(dest => dest.Rooms, opt => opt.MapFrom(src => src.Rooms))
             .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Price))
             .ForMember(dest => dest.Garages, opt => opt.MapFrom(src => src.Garages));
+        
+        CreateMap<PostImageListCommand, ImageListModel>()
+            .ForMember(dest => dest.PublicationId, opt => opt.MapFrom(src => src.PublicationId))
+            .ForMember(dest => dest.ImageList, opt => opt.MapFrom(src => src.ImageList));
     }
 }

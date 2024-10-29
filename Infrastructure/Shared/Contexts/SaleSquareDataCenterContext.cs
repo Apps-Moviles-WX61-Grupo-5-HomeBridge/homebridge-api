@@ -20,6 +20,8 @@ public class SaleSquareDataCenterContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<RefreshTokenRecord> RefreshTokenRecords { get; set; }
     public DbSet<PublicationModel> Publication { get; set; }
+    
+    public DbSet<ImageListModel> ImageList { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -42,8 +44,7 @@ public class SaleSquareDataCenterContext : DbContext
         modelBuilder.Entity<PublicationModel>().OwnsOne(p => p._Location);
         modelBuilder.Entity<PublicationModel>().ToTable("Publication");
         
-        
-        modelBuilder.Entity<PublicationModel>()
+        modelBuilder.Entity<ImageListModel>()
             .Property(p => p.ImageList)
             .HasConversion(
                 v => string.Join(";", v),

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Application\\Application.csproj": {}
+    "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Application\\Application.csproj": {
+    "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Application\\Application.csproj",
+        "projectUniqueName": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Application\\obj\\",
+        "projectPath": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,21 +22,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Domain\\Domain.csproj"
+              "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Infrastructure\\Infrastructure.csproj"
+              "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Infrastructure\\Infrastructure.csproj"
               },
-              "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Shared\\Shared.csproj"
+              "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Shared\\Shared.csproj": {
+                "projectPath": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Shared\\Shared.csproj"
               }
             }
           }
@@ -76,25 +71,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.409\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Domain\\Domain.csproj": {
+    "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Domain\\obj\\",
+        "projectPath": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -102,15 +93,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Shared\\Shared.csproj"
+              "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Shared\\Shared.csproj": {
+                "projectPath": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Shared\\Shared.csproj"
               }
             }
           }
@@ -154,25 +144,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.409\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Infrastructure\\obj\\",
+        "projectPath": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -180,18 +166,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Domain\\Domain.csproj"
+              "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Shared\\Shared.csproj"
+              "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Shared\\Shared.csproj": {
+                "projectPath": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Shared\\Shared.csproj"
               }
             }
           }
@@ -231,25 +216,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.409\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Shared\\Shared.csproj": {
+    "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Shared\\Shared.csproj",
+        "projectUniqueName": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Shared\\obj\\",
+        "projectPath": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "D:\\CAMILA\\UPC\\Ciclo 6\\Aplicaciones para Dispositivos Moviles\\Trabajo grupo\\homebridge-api\\Shared\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -257,7 +238,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -291,7 +271,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.409\\RuntimeIdentifierGraph.json"
         }
       }
     }

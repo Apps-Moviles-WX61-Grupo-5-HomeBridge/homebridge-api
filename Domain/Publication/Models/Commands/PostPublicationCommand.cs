@@ -9,7 +9,6 @@ public class PostPublicationCommand
     public float Price { get; set; }
     public string _Location_Address { get; set; }
     public int UserId { get; set; }
-    public List<string> ImagesList { get; set; }
     public float CoveredArea { get; set; }
     public float TotalArea { get; set; }
     [DefaultValue("Casa")] public string Type { get; set; }
@@ -22,7 +21,6 @@ public class PostPublicationCommand
     [DefaultValue("Iniciado")] public string ProjectStage { get; set; }
     public DateTime ProjectStartDate { get; set; }
     public int Antiquity { get; set; }
-    public string Service { get; set; }
     
     public int Size { get; set; }
     

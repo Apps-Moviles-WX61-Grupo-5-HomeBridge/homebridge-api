@@ -7,4 +7,6 @@ public interface IPublicationCommandService
     public Task<int> Handle(PublicationModel publication);
 
     public Task<int> Handle(int id);
+    
+    public Task<int> Handle(ImageListModel imageList);
 }
