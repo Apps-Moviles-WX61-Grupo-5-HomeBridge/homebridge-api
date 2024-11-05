@@ -171,10 +171,10 @@ public class PublicationRepository : IPublicationRepository
                  (u.Operation == query.OperationType) ||
                  (u.PlaceType == query.PlaceType)) ||
                 ((query.PriceFrom <= u.Price) && (u.Price <= query.PriceTo)) || 
-                (query.Bathrooms <= u.BathroomQuantity) ||
+                (query.Bathrooms <= u.Bathrooms) ||
                 (query.Garages <= u.Garages) || 
                 (query.Rooms <= u.Rooms) ||
-                ((query.AreaFrom <= u.TotalArea) && (u.TotalArea <= query.AreaTo))
+                ((query.AreaFrom <= u.Size) && (u.Size <= query.AreaTo))
             )
             .Take(amount)
             .ToListAsync();

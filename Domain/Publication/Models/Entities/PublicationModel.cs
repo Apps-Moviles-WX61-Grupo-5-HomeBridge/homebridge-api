@@ -48,18 +48,12 @@ public class PublicationModel : ModelBase
 
     [Required] public double Priority { get; set; } = (double)UserConstraints.PublicationPriorityPremiumUser;
     
-    [Required] public float TotalArea { get; set; }
     
     [Required] public int PlaceType { get; set; }
     
     [Required] public int Operation { get; set; }
     
-    [Required] public int DormitoryQuantity { get; set; }
-    
-    [Required] public int BathroomQuantity { get; set; }
-    
-    
-    [Required] public int ParkingLotQuantity { get; set; }
+    [Required] public int Bathrooms { get; set; }
     
     [Required] public DateTime ProjectStartDate { get; set; }
     

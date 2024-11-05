@@ -1,7 +1,7 @@
 namespace Domain.Publication.Models.ValueObjects;
 
-public enum EOperation
+public enum EOperationType
 {
-    Venta,
-    Alquiler
+    Buy,
+    Rent
 }

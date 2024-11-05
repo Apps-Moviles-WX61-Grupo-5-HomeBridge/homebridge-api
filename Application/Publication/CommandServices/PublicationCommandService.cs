@@ -61,7 +61,7 @@ public class PublicationCommandService : IPublicationCommandService
         if (!Enum.IsDefined(typeof(EPropertyType), publication.PlaceType)) throw new ArgumentException("Invalid ServiceType");
         
         //  4.  Check if the publication operation is valid
-        if (!Enum.IsDefined(typeof(EOperation), publication.Operation)) throw new ArgumentException("Invalid Operation");
+        if (!Enum.IsDefined(typeof(EOperationType), publication.Operation)) throw new ArgumentException("Invalid Operation");
         
         return await this._publicationRepository.PostPublicationAsync(publication);
     }

@@ -10,13 +10,10 @@ public class PostPublicationCommand
     public float Price { get; set; }
     public string _Location_Address { get; set; }
     public int UserId { get; set; }
-    public float TotalArea { get; set; }
-    [DefaultValue(EPropertyType.Casa)] public int Type { get; set; }
-    [DefaultValue(EOperation.Alquiler)] public int Operation { get; set; }
-    public int DormitoryQuantity { get; set; }
-    public int BathroomQuantity { get; set; }
-    public int ParkingLotQuantity { get; set; }
-    public int Antiquity { get; set; }
+    [DefaultValue(EPropertyType.House)] public int Type { get; set; }
+    [DefaultValue(EOperationType.Rent)] public int Operation { get; set; }
+    public int Bathrooms { get; set; }
+    [DefaultValue(EPublicationAntiqueType.NewlyBuilt)] public int Antiquity { get; set; }
     
     public int Size { get; set; }
     

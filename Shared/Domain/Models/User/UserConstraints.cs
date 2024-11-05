@@ -2,7 +2,7 @@ namespace _3_Shared.Domain.Models.User;
 
 public enum UserConstraints
 {
-    MaxPublicationBasicUser = 3,
+    MaxPublicationBasicUser = 99999,
     MaxPublicationPremiumUser = 9999999,
     
     TimeActiveInDaysBasicUser = 30,
