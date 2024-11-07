@@ -11,5 +11,7 @@ public interface IPublicationQueryService
      
      public Task<List<PublicationModel>> Publications(GetPublicationQuery query);
      
+     public Task<List<PublicationModel>> JustPublications();
+     
      public Task<ImageListModel> ImageListByPublicationId(int publicationId);
 }

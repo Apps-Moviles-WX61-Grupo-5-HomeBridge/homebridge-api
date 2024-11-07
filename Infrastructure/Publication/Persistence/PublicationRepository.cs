@@ -1,6 +1,7 @@
 using _2_Domain.Publication.Models.Entities;
 using _2_Domain.Publication.Models.Queries;
 using _3_Data.Shared.Contexts;
+using _3_Shared.Domain.Models.Publication;
 using Domain.Publication.Models.Queries;
 using Domain.Publication.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -177,6 +178,15 @@ public class PublicationRepository : IPublicationRepository
                 ((query.AreaFrom <= u.Size) && (u.Size <= query.AreaTo))
             )
             .Take(amount)
+            .ToListAsync();
+        
+        return result;
+    }
+    
+    public async Task<List<PublicationModel>> JustPublications()
+    {
+        var result = await this._saleSquareDataCenterContext.Publication
+            .Take((int) PublicationConstraints.MaxPublicationRequests)
             .ToListAsync();
         
         return result;

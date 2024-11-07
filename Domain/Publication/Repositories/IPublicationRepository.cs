@@ -14,6 +14,8 @@ public interface IPublicationRepository
     
     public Task<List<PublicationModel>> Publications(GetPublicationQuery query, int amount);
     
+    public Task<List<PublicationModel>> JustPublications();
+    
     public Task<int> DeletePublicationAsync(int publicationId);
     
     public Task<int> MarkAsExpiredAsync(PublicationModel publication);

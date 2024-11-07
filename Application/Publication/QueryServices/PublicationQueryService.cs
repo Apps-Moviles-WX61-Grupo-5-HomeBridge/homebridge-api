@@ -102,6 +102,25 @@ public class PublicationQueryService : IPublicationQueryService
         return result;
     }
     
+    public async Task<List<PublicationModel>> JustPublications()
+    {
+        var result = await this._publicationRepository.JustPublications();
+
+        foreach (var publication in result)
+        {
+            //  @Validations
+            //  1.  Check if the publication has expired, otherwise verify and continue.
+            var user = await this._userManagerRepository.GetUserByIdAsync(publication.UserId);
+            if (((DateTime.Now - publication.CreatedDate).TotalDays > (double) UserConstraints.TimeActiveInDaysBasicUser) &&
+                (user.Role == UserRole.BasicUser.ToString()))
+            {
+                await this._publicationRepository.MarkAsExpiredAsync(publication);
+            }
+        }
+
+        return result;
+    }
+    
     public async Task<ImageListModel> ImageListByPublicationId(int publicationId)
     {
         if (publicationId <= 0) throw new InvalidIdException("Invalid PublicationId!");

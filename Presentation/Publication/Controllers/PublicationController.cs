@@ -104,6 +104,19 @@ public class PublicationController : ControllerBase
     }
     
     [HttpGet]
+    [Route("justPublications")]
+    public async Task<IActionResult> GetJustPublications()
+    {
+        if (!ModelState.IsValid) return BadRequest(ModelState);
+        
+        var result = await this._publicationQueryService.JustPublications();
+
+        if (result == null) return NotFound();
+
+        return Ok(result);
+    }
+    
+    [HttpGet]
     [Route("imageList")]
     public async Task<IActionResult> GetImageListByPublicationId([FromQuery] int amount)
     {
