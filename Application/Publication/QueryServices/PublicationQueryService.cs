@@ -1,6 +1,5 @@
 using _2_Domain.Publication.Models.Entities;
 using _2_Domain.Publication.Models.Queries;
-using _2_Domain.Publication.Services;
 using _3_Data;
 using _3_Shared.Domain.Models.Publication;
 using _3_Shared.Domain.Models.User;

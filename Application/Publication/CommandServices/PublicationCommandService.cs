@@ -1,12 +1,15 @@
 using _2_Domain.Publication.Models.Entities;
 using _2_Domain.Publication.Models.Queries;
-using _2_Domain.Publication.Services;
 using _3_Data;
 using _3_Shared.Domain.Models;
 using _3_Shared.Domain.Models.User;
 using _3_Shared.Middleware.Exceptions;
+using Domain.IAM.Models.Commands;
+using Domain.Publication.Models.Commands;
+using Domain.Publication.Models.Queries;
 using Domain.Publication.Models.ValueObjects;
 using Domain.Publication.Repositories;
+using Domain.Publication.Services;
 
 namespace Application.Publication.CommandServices;
 
@@ -58,7 +61,7 @@ public class PublicationCommandService : IPublicationCommandService
         }
         
         //  3.  Check if the publication type is valid
-        if (!Enum.IsDefined(typeof(EPropertyType), publication.PlaceType)) throw new ArgumentException("Invalid ServiceType");
+        if (!Enum.IsDefined(typeof(EPropertyType), publication.PropertyType)) throw new ArgumentException("Invalid ServiceType");
         
         //  4.  Check if the publication operation is valid
         if (!Enum.IsDefined(typeof(EOperationType), publication.Operation)) throw new ArgumentException("Invalid Operation");
@@ -78,7 +81,7 @@ public class PublicationCommandService : IPublicationCommandService
     
     public async Task<int> Handle(ImageListModel imageList)
     {
-        var query = new GetPublicationByIdQuery() { PublicationId = imageList.PublicationId };
+        var query = new GetPublicationByIdQuery(imageList.PublicationId);
         
         var result = await this._publicationRepository.GetPublicationAsync(query);
         if (result == null)
@@ -87,5 +90,31 @@ public class PublicationCommandService : IPublicationCommandService
         }
         
         return await this._publicationRepository.PostImageListAsync(imageList);
+    }
+
+    public async Task<bool> UpdatePublication(UpdatePublicationCommand command)
+    {
+        if (command.UserId <= 0)
+        {
+            throw new InvalidIdException("User has an invalid identifier.");
+        }
+        if (command.PublicationId <= 0)
+        {
+            throw new InvalidIdException("Publication has an invalid identifier.");
+        }
+        
+        var result = await this._publicationRepository.UpdatePublication(command);
+        return result;
+    }
+    
+    public async Task<bool> UpdateImageList(UpdateImageListCommand command)
+    {
+        if (command.PublicationId <= 0)
+        {
+            throw new InvalidIdException("Publication has an invalid identifier.");
+        }
+        
+        var result = await this._publicationRepository.UpdateImageList(command);
+        return result;
     }
 }

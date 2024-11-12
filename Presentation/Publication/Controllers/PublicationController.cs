@@ -3,8 +3,8 @@ using _2_Domain;
 using _2_Domain.Publication.Models.Commands;
 using _2_Domain.Publication.Models.Entities;
 using _2_Domain.Publication.Models.Queries;
-using _2_Domain.Publication.Services;
 using AutoMapper;
+using Domain.Publication.Models.Commands;
 using Domain.Publication.Models.Queries;
 using Domain.Publication.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -248,6 +248,32 @@ public class PublicationController : ControllerBase
             return BadRequest("Publication could not be deleted as an invalid ID was returned.");
         }
 
+        return Ok(result);
+    }
+
+    [HttpPut]
+    [Route("updatePublication")]
+    public async Task<IActionResult> UpdatePublication([FromBody] UpdatePublicationCommand command)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var result = await this._publicationCommandService.UpdatePublication(command);
+        return Ok(result);
+    }
+
+    [HttpPut]
+    [Route("updateImageList")]
+    public async Task<IActionResult> UpdateImageList([FromBody] UpdateImageListCommand command)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var result = await this._publicationCommandService.UpdateImageList(command);
         return Ok(result);
     }
 }

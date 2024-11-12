@@ -2,6 +2,7 @@ using _2_Domain.IAM.Models.Entities;
 using _2_Domain.IAM.Models.Queries;
 using _2_Domain.IAM.Services.Queries;
 using _3_Data;
+using Domain.IAM.Models.Queries;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Application.Search.QueryServices;

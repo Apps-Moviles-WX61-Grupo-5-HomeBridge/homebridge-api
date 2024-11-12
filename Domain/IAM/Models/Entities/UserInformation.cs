@@ -17,4 +17,8 @@ public class UserInformation : ModelBase
     public string PhoneNumber { get; set; }
     
     public string Role { get; set; } = UserRole.BasicUser.ToString();
+    
+    public string UserDescription { get; set; } = "";
+    
+    public string UserProfilePhotoUrl { get; set; } = $"https://randomuser.me/api/portraits/men/{new Random().Next(1, 21)}.jpg";
 }

@@ -49,7 +49,7 @@ public class PublicationModel : ModelBase
     [Required] public double Priority { get; set; } = (double)UserConstraints.PublicationPriorityPremiumUser;
     
     
-    [Required] public int PlaceType { get; set; }
+    [Required] public int PropertyType { get; set; }
     
     [Required] public int Operation { get; set; }
     

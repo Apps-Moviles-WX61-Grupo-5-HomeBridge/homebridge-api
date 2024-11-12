@@ -1,5 +1,6 @@
 using _2_Domain.Publication.Models.Entities;
 using _2_Domain.Publication.Models.Queries;
+using Domain.Publication.Models.Commands;
 using Domain.Publication.Models.Queries;
 
 namespace Domain.Publication.Repositories;
@@ -23,4 +24,8 @@ public interface IPublicationRepository
     public Task<ImageListModel?> ImageList(int publicationId);
     
     public Task<int> PostImageListAsync(ImageListModel imageList);
+
+    public Task<bool> UpdatePublication(UpdatePublicationCommand command);
+    
+    public Task<bool> UpdateImageList(UpdateImageListCommand command);
 }

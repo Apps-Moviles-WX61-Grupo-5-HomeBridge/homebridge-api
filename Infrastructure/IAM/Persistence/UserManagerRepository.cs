@@ -1,5 +1,6 @@
 using _2_Domain.IAM.Models.Entities;
 using _3_Data.Shared.Contexts;
+using Domain.IAM.Models.Commands;
 using Microsoft.EntityFrameworkCore;
 
 namespace _3_Data.IAM.Persistence;
@@ -38,5 +39,17 @@ public class UserManagerRepository : IUserManagerRepository
         }
         
         return resultList;
+    }
+
+    public async Task<bool> UpdateUser(UpdateUserCommand command)
+    {
+        var existingUser = await this.GetUserByIdAsync(command.UserId);
+        if (existingUser == null) return false;
+        
+        existingUser.UserDescription = command.Description;
+        existingUser.UserProfilePhotoUrl = command.PhotoUrl;
+        existingUser.Name = command.Name;
+        await this._salesquareDataCenterContext.SaveChangesAsync();
+        return true;
     }
 }

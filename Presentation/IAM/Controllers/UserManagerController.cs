@@ -5,6 +5,9 @@ using _2_Domain.IAM.Services.Commands;
 using _2_Domain.IAM.Services.Queries;
 using _3_Shared.Middleware.Exceptions;
 using AutoMapper;
+using Domain.IAM.Models.Commands;
+using Domain.IAM.Models.Queries;
+using Domain.IAM.Services.Commands;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -99,6 +102,20 @@ public class UserManagerController : ControllerBase
         
         var result = await this._userManagerQueryService.Handle(query);
         
+        return Ok(result);
+    }
+
+    [HttpPut]
+    [Route("updateUser")]
+    public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand command)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var result = await this._userManagerCommandService.UpdateUser(command);
+
         return Ok(result);
     }
 }

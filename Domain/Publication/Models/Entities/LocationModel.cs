@@ -14,4 +14,9 @@ public class LocationModel
         ErrorMessage = "'Address' must have a valid string length range."
     )]
     public string Address { get; set; }
+
+    public LocationModel(string address)
+    {
+        Address = address;
+    }
 }

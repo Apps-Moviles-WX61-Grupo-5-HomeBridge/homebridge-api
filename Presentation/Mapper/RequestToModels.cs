@@ -64,14 +64,11 @@ public class RequestToModels : Profile
             .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
             .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Price))
             .ForMember(dest => dest._Location,
-                opt => opt.MapFrom(src => new LocationModel()
-                    {
-                        Address = src._Location_Address
-                    }
+                opt => opt.MapFrom(src => new LocationModel(src._Location_Address)
                 )
             )
             .ForMember(dest => dest.Antiquity, opt => opt.MapFrom(src => src.Antiquity))
-            .ForMember(dest => dest.PlaceType, opt => opt.MapFrom(src => src.Type))
+            .ForMember(dest => dest.PropertyType, opt => opt.MapFrom(src => src.Type))
             .ForMember(dest => dest.Operation, opt => opt.MapFrom(src => src.Operation))
             .ForMember(dest => dest.Size, opt => opt.MapFrom(src => src.Size))
             .ForMember(dest => dest.Rooms, opt => opt.MapFrom(src => src.Rooms))
