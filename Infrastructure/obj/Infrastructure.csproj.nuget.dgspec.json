@@ -13,6 +13,7 @@
         "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
@@ -91,6 +92,7 @@
         "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
@@ -168,6 +170,7 @@
         "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\USUARIO\\Desktop\\AppMoviles\\SaleSquare\\Shared\\obj\\",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
