@@ -118,14 +118,14 @@ public class PublicationController : ControllerBase
     
     [HttpGet]
     [Route("imageList")]
-    public async Task<IActionResult> GetImageListByPublicationId([FromQuery] int amount)
+    public async Task<IActionResult> GetImageListByPublicationId([FromQuery] int publicationId)
     {
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
         
-        var result = await this._publicationQueryService.ImageListByPublicationId(amount);
+        var result = await this._publicationQueryService.ImageListByPublicationId(publicationId);
 
         if (result == null)
         {

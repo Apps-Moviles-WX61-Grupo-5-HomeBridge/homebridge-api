@@ -141,24 +141,28 @@ public class PublicationRepository : IPublicationRepository
 
     public async Task<int> PostImageListAsync(ImageListModel imageList)
     {
-        var executionStrategy = this._saleSquareDataCenterContext.Database.CreateExecutionStrategy();
+        var existingImageList = await this._saleSquareDataCenterContext.ImageList.
+            Where(u => 
+                (u.PublicationId == imageList.PublicationId) && 
+                (u.IsDeleted == false)
+            ).FirstOrDefaultAsync();
+        if (existingImageList != null) throw new Exception("Image list already exists. Try updating or deleting it.");
         
+        var executionStrategy = this._saleSquareDataCenterContext.Database.CreateExecutionStrategy();
         await executionStrategy.ExecuteAsync(async () =>
         {
-            using (var transaction = await this._saleSquareDataCenterContext.Database.BeginTransactionAsync())
+            await using var transaction = await this._saleSquareDataCenterContext.Database.BeginTransactionAsync();
+            try
             {
-                try
-                {
-                    imageList.IsDeleted = false;
-                    this._saleSquareDataCenterContext.ImageList.Add(imageList);
-                    await this._saleSquareDataCenterContext.SaveChangesAsync();
-                    await transaction.CommitAsync();
-                }
-                catch (Exception exception)
-                {
-                    await transaction.RollbackAsync();
-                }
-            }        
+                imageList.IsDeleted = false;
+                this._saleSquareDataCenterContext.ImageList.Add(imageList);
+                await this._saleSquareDataCenterContext.SaveChangesAsync();
+                await transaction.CommitAsync();
+            }
+            catch (Exception exception)
+            {
+                await transaction.RollbackAsync();
+            }
         });
         
         return imageList.Id;
@@ -230,6 +234,7 @@ public class PublicationRepository : IPublicationRepository
         if (command.ImageList == null) return false;
         
         result.ImageList = command.ImageList;
+        await this._saleSquareDataCenterContext.SaveChangesAsync();
 
         return true;
     }

@@ -14,7 +14,7 @@ public class ImageListModel : ModelBase
     public int Id { get; init; }
     
     [Required]
-    public int PublicationId { get; init; }
+    public int PublicationId { get; set; }
     
     [Required] public List<string> ImageList { get; set; }
 }
