@@ -81,9 +81,7 @@ public class PublicationQueryService : IPublicationQueryService
 
     public async Task<List<PublicationModel>> Publications(GetPublicationQuery query)
     {
-        var amount = query.Amount;
-        if (amount > (int) PublicationConstraints.MaxPublicationRequests) amount = (int) PublicationConstraints.MaxPublicationRequests;
-        var result = await this._publicationRepository.Publications(query, amount);
+        var result = await this._publicationRepository.Publications(query);
         if (result == null) throw new PublicationNotFoundException("Publication not found!");
 
         foreach (var publication in result)

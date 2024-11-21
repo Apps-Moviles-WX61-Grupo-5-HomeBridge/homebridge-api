@@ -13,7 +13,7 @@ public interface IPublicationRepository
     
     public Task<List<PublicationModel>> UserPublications(int userId);
     
-    public Task<List<PublicationModel>> Publications(GetPublicationQuery query, int amount);
+    public Task<List<PublicationModel>> Publications(GetPublicationQuery query);
     
     public Task<List<PublicationModel>> JustPublications();
     

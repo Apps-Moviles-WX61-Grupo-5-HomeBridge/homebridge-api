@@ -12,5 +12,4 @@ public class GetPublicationQuery
     public int Garages { set; get; }
     public float AreaFrom { set; get; }
     public float AreaTo { set; get; }
-    public int Amount { set; get; }
 }

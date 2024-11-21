@@ -168,21 +168,21 @@ public class PublicationRepository : IPublicationRepository
         return imageList.Id;
     }
 
-    public async Task<List<PublicationModel>> Publications(GetPublicationQuery query, int amount)
+    public async Task<List<PublicationModel>> Publications(GetPublicationQuery query)
     {
         var result = await this._saleSquareDataCenterContext.Publication
             .Where(u => 
                 (u.IsDeleted == false) &&
                 (u._Location.Address.Contains(query.Location) ||
                  (u.Operation == query.OperationType) ||
-                 (u.PropertyType == query.PlaceType)) ||
+                 (u.PropertyType == query.PlaceType) ||
                 ((query.PriceFrom <= u.Price) && (u.Price <= query.PriceTo)) || 
-                (query.Bathrooms <= u.Bathrooms) ||
-                (query.Garages <= u.Garages) || 
-                (query.Rooms <= u.Rooms) ||
-                ((query.AreaFrom <= u.Size) && (u.Size <= query.AreaTo))
+                (query.Bathrooms == u.Bathrooms) || ((u.Bathrooms >= 5) && (query.Bathrooms >= 5)) ||
+                (query.Garages == u.Garages) || ((u.Garages >= 5) && (query.Garages >= 5)) || 
+                (query.Rooms == u.Rooms) || ((u.Rooms >= 5) && (query.Rooms >= 5)) ||
+                ((query.AreaFrom <= u.Size) && (u.Size <= query.AreaTo)))
             )
-            .Take(amount)
+            .Take((int) PublicationConstraints.MaxPublicationRequests)
             .ToListAsync();
         
         return result;
