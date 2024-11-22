@@ -13,5 +13,5 @@ public enum PublicationConstraints
     //  ~for some reason ;-;
     MinPrice = 0,   
     
-    MaxPublicationRequests = 20
+    MaxPublicationRequests = 30
 }
